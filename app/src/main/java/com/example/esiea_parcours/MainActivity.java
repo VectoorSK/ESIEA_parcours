@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 datalist = response.body();
                 Toast.makeText(MainActivity.this, "Loading success!", Toast.LENGTH_SHORT).show();
-                showCursus();
+                showCursus(datalist.get(0));
             }
 
             @Override
@@ -65,11 +65,22 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showCursus() {
-        for (Annee annee : datalist) {
-            int idTitle = getResources().getIdentifier("title_" + annee.getAnnee() + "a", "id", getPackageName());
+    private void showCursus (Annee annee) {
+        //for (Annee annee : datalist) {
+            int idTitle = getResources().getIdentifier("title_1a", "id", getPackageName());
             TextView title = (TextView) findViewById(idTitle);
-            title.setText("Année " + annee.getAnnee());
+            if (annee.getAnnee() == 1) {
+                title.setText("1ère Année");
+            } else {
+                title.setText(annee.getAnnee() + "ème Année");
+            }
+
+            int containerID = getResources().getIdentifier("card_1a", "id", getPackageName());
+            ViewGroup container = (ViewGroup) findViewById(containerID);
+
+            for (int j = container.getChildCount()-1; j > 0; j--) {
+                container.removeViewAt(j);
+            }
             int i = 0;
             for (Bloc bloc : annee.getBlocs()) {
                 i++;
@@ -78,22 +89,32 @@ public class MainActivity extends AppCompatActivity {
                 TextView layout = (TextView) view.findViewById(R.id.bloc_titre);
                 layout.setText(bloc.getNom());
 
-                int containerID = getResources().getIdentifier("card_" + annee.getAnnee() + "a", "id", getPackageName());
-                ViewGroup container = (ViewGroup) findViewById(containerID);
                 container.addView(view, i, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
 
                 for (Matiere matiere : bloc.getMatieres()) {
                     LayoutInflater layoutInflater2 = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
                     View view2 = layoutInflater2.inflate(R.layout.matiere_layout, null);
                     TextView name = (TextView) view2.findViewById(R.id.buttonM);
-                    name.setText(matiere.getNom());
-                    ((ViewGroup) container.getChildAt(i)).addView(view2, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                    //ViewGroup container2 = (ViewGroup) findViewById(R.id.bloc_layout);
-                    //container2.addView(view2, 1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-
+                    name.setText("• " + matiere.getNom());
+                    ((ViewGroup)((ViewGroup)((ViewGroup) container.getChildAt(i)).getChildAt(0)).getChildAt(0)).addView(view2, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 }
             }
-        }
+        //}
+    }
+
+    public void loadYear1(View view) {
+        showCursus(datalist.get(0));
+    }
+    public void loadYear2(View view) {
+        showCursus(datalist.get(1));
+    }
+    public void loadYear3(View view) {
+        showCursus(datalist.get(2));
+    }
+    public void loadYear4(View view) {
+        showCursus(datalist.get(3));
+    }
+    public void loadYear5(View view) {
+        showCursus(datalist.get(4));
     }
 }
