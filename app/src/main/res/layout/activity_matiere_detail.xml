@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatiereDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="10dp">
+
+        <TextView
+            android:id="@+id/mat_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titre"
+            android:textSize="23dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mat_coeff_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Coefficient : "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
+        <TextView
+            android:id="@+id/mat_coeff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="0"
+            app:layout_constraintStart_toEndOf="@+id/mat_coeff_caption"
+            app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
+
+        <TextView
+            android:id="@+id/mat_heure_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="Nombre d'heure : "
+            app:layout_constraintEnd_toStartOf="@+id/mat_heure"
+            app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
+        <TextView
+            android:id="@+id/mat_heure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
+
+        <Button
+            android:id="@+id/mat_resume_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Résumé "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:onClick="openCloseResume"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_coeff_caption" />
+        <TextView
+            android:id="@+id/mat_resume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="résumé"
+            android:justificationMode="inter_word"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_resume_caption" />
+
+        <Button
+            android:id="@+id/mat_contenu_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Contenu "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:onClick="openCloseContenu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_resume" />
+        <TextView
+            android:id="@+id/mat_contenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="contenu"
+            android:justificationMode="inter_word"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_contenu_caption" />
+
+        <Button
+            android:id="@+id/mat_objectif_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Objectifs / Situations "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:onClick="openCloseObjectifs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_contenu" />
+        <LinearLayout
+            android:id="@+id/mat_objectif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_objectif_caption"/>
+
+        <Button
+            android:id="@+id/mat_repartition_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Répartition "
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:onClick="openCloseRepartition"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_objectif" />
+        <TextView
+            android:id="@+id/mat_repartition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="repartition"
+            android:justificationMode="inter_word"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_repartition_caption" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
