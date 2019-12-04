@@ -1,3 +1,18 @@
 <resources>
-    <string name="app_name">ESIEA_parcours</string>
+    <string name="app_name">ESIEA Cursus</string>
+    <string name="repartition_text">Cours / TD :\nCours :\nTD :\nTP :\nProjet :\nAtelier :</string>
+    <string name="to_fill">...</string>
+    <string name="short_1a">1A</string>
+    <string name="short_2a">2A</string>
+    <string name="short_3a">3A</string>
+    <string name="short_4a">4A</string>
+    <string name="short_5a">5A</string>
+    <string name="null_nb">0</string>
+    <string name="null_text">null</string>
+    <string name="coeff_caption">Coefficient : </string>
+    <string name="heure_caption">Nombre d\'heure : </string>
+    <string name="resume_caption">Résumé </string>
+    <string name="contenu_caption">Contenu </string>
+    <string name="objectif_caption">Objectifs / Situations </string>
+    <string name="support_caption">Support </string>
 </resources>

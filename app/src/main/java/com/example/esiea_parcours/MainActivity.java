@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Annee>> call, Response<List<Annee>> response) {
                 progressDialog.dismiss();
                 datalist = response.body();
-                Toast.makeText(MainActivity.this, "Loading success!", Toast.LENGTH_SHORT).show();
                 showCursus(datalist.get(0));
             }
 
@@ -115,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                         viewIntent.putExtra("annee", annee.getAnnee());
                         viewIntent.putExtra("bloc", bloc.getNom());
                         viewIntent.putExtra("nom", matiere.getNom());
+                        viewIntent.putExtra("semestre", matiere.getSemestre());
                         startActivity(viewIntent);
                     }
                 });

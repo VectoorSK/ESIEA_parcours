@@ -9,15 +9,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="10dp">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/mat_nom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Titre"
-            android:textSize="23dp"
+            android:text="@string/to_fill"
+            android:textSize="24sp"
+            android:textColor="#000000"
             android:gravity="center"
             android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Coefficient : "
+            android:text="@string/coeff_caption"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
         <TextView
@@ -37,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="0"
+            android:text="@string/null_nb"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@+id/mat_coeff_caption"
             app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
 
@@ -46,8 +50,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:text="Nombre d'heure : "
+            android:text="@string/heure_caption"
+            android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/mat_heure"
             app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
         <TextView
@@ -55,7 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="0"
+            android:text="@string/null_nb"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_nom" />
 
@@ -64,11 +71,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Résumé "
-            android:textSize="18dp"
+            android:text="@string/resume_caption"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:background="@android:color/transparent"
             android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
             android:onClick="openCloseResume"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_coeff_caption" />
@@ -76,7 +84,7 @@
             android:id="@+id/mat_resume"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="résumé"
+            android:text="@string/to_fill"
             android:justificationMode="inter_word"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,11 +96,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Contenu "
-            android:textSize="18dp"
+            android:text="@string/contenu_caption"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:background="@android:color/transparent"
             android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
             android:onClick="openCloseContenu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_resume" />
@@ -100,7 +109,7 @@
             android:id="@+id/mat_contenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="contenu"
+            android:text="@string/to_fill"
             android:justificationMode="inter_word"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,11 +121,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Objectifs / Situations "
-            android:textSize="18dp"
+            android:text="@string/objectif_caption"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:background="@android:color/transparent"
             android:drawableRight="@drawable/ic_arrow_down_black_24dp"
+            android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
             android:onClick="openCloseObjectifs"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_contenu" />
@@ -130,29 +140,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mat_objectif_caption"/>
 
+        <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/chart"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mat_objectif" />
+
         <Button
-            android:id="@+id/mat_repartition_caption"
+            android:id="@+id/mat_support_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Répartition "
-            android:textSize="18dp"
+            android:layout_marginTop="10sp"
+            android:text="@string/support_caption"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:background="@android:color/transparent"
             android:drawableRight="@drawable/ic_arrow_down_black_24dp"
-            android:onClick="openCloseRepartition"
+            android:drawableEnd="@drawable/ic_arrow_down_black_24dp"
+            android:onClick="openCloseSupport"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mat_objectif" />
-        <TextView
-            android:id="@+id/mat_repartition"
-            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/chart"/>
+        <LinearLayout
+            android:id="@+id/mat_support"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="repartition"
-            android:justificationMode="inter_word"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mat_repartition_caption" />
+            app:layout_constraintTop_toBottomOf="@+id/mat_support_caption"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

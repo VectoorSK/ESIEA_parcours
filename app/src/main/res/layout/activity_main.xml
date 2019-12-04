@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/blueEsiea"
+        android:background="@color/blueEsiea"
         app:cardCornerRadius="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,8 +36,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_gravity="center"
-                    android:textSize="22dp"
-                    android:text="1A" />
+                    android:textSize="22sp"
+                    android:text="@string/short_1a" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_2a"
@@ -56,8 +56,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_gravity="center"
-                    android:textSize="22dp"
-                    android:text="2A" />
+                    android:textSize="22sp"
+                    android:text="@string/short_2a" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_3a"
@@ -76,8 +76,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_gravity="center"
-                    android:textSize="22dp"
-                    android:text="3A" />
+                    android:textSize="22sp"
+                    android:text="@string/short_3a" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_4a"
@@ -96,8 +96,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_gravity="center"
-                    android:textSize="22dp"
-                    android:text="4A" />
+                    android:textSize="22sp"
+                    android:text="@string/short_4a" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:id="@+id/btn_5a"
@@ -116,8 +116,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_gravity="center"
-                    android:textSize="22dp"
-                    android:text="5A" />
+                    android:textSize="22sp"
+                    android:text="@string/short_5a" />
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -154,107 +154,12 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center"
-                        android:text="title"
-                        android:textSize="30dp"/>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/lightblue" >
-
-                <LinearLayout
-                    android:id="@+id/card_2a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/title_2a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text="title"
-                        android:textSize="30dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/lightblue" >
-
-                <LinearLayout
-                    android:id="@+id/card_3a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/title_3a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text="title"
-                        android:textSize="30dp" />
+                        android:text="@string/to_fill"
+                        android:textSize="30sp"/>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/lightblue" >
-
-                <LinearLayout
-                    android:id="@+id/card_4a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/title_4a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text="title"
-                        android:textSize="30dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:cardBackgroundColor="@color/lightblue" >
-
-                <LinearLayout
-                    android:id="@+id/card_5a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/title_5a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:text="title"
-                        android:textSize="30dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView> -->
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

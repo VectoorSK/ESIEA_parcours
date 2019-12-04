@@ -5,5 +5,13 @@
     <color name="colorAccent">#D81B60</color>
     <color name="lightblue">#E8EAF6</color>
     <color name="blueEsiea">#0085c6</color>
+    <color name="bluePalette0">#BBDEFB</color>
+    <color name="bluePalette1">#64B5F6</color>
+    <color name="bluePalette2">#1E88E5</color>
+    <color name="bluePalette3">#1565C0</color>
+    <color name="bluePalette4">#0D47A1</color>
+    <color name="bluePalette5">#303F9F</color>
+    <color name="bluePalette6">#ff0000</color>
+
     <color name="white">#ffffff</color>
 </resources>

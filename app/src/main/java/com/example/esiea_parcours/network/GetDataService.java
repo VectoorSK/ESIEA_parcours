@@ -9,6 +9,6 @@ import retrofit2.http.GET;
 
 public interface GetDataService {
 
-    @GET("/VectoorSK/ESIEA_API/master/cursus.json")
+    @GET("/VectoorSK/ESIEA_API/master/cursus1.json")
     Call<List<Annee>> getAllYears();
 }
