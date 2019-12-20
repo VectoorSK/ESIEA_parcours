@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Annee> datalist;
     ProgressDialog progressDialog;
+    private int filter = 0;
+    private int year = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,46 +96,57 @@ public class MainActivity extends AppCompatActivity {
         for (int j = container.getChildCount()-1; j > 0; j--) {
            container.removeViewAt(j);
         }
-        int i = 0;
-        for (final Bloc bloc : annee.getBlocs()) {
-            i++;
+        if (filter == 2 && annee.getAnnee() == 5) {
             LayoutInflater layoutInflater = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
             final View view = layoutInflater.inflate(R.layout.bloc_layout, null);
             TextView layout = (TextView) view.findViewById(R.id.bloc_titre);
-            layout.setText(bloc.getNom());
+            layout.setText("Stage de fin d'étude");
 
-            container.addView(view, i, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            container.addView(view);
+        } else {
+            int i = 0;
+            for (final Bloc bloc : annee.getBlocs()) {
+                i++;
+                LayoutInflater layoutInflater = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
+                final View view = layoutInflater.inflate(R.layout.bloc_layout, null);
+                TextView layout = (TextView) view.findViewById(R.id.bloc_titre);
+                layout.setText(bloc.getNom());
 
-            for (final Matiere matiere : bloc.getMatieres()) {
-                LayoutInflater layoutInflater2 = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
-                View view2 = layoutInflater2.inflate(R.layout.matiere_layout, null);
-                view2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent viewIntent = new Intent(MainActivity.this, MatiereDetailActivity.class);
-                        viewIntent.putExtra("annee", annee.getAnnee());
-                        viewIntent.putExtra("bloc", bloc.getNom());
-                        viewIntent.putExtra("nom", matiere.getNom());
-                        viewIntent.putExtra("semestre", matiere.getSemestre());
-                        startActivity(viewIntent);
+                container.addView(view, i, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                for (final Matiere matiere : bloc.getMatieres()) {
+                    if (filter == 0 || (filter == 1 && matiere.getSemestre() == 1) || (filter == 2 && matiere.getSemestre() == 2)) {
+                        LayoutInflater layoutInflater2 = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
+                        View view2 = layoutInflater2.inflate(R.layout.matiere_layout, null);
+                        view2.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent viewIntent = new Intent(MainActivity.this, MatiereDetailActivity.class);
+                                viewIntent.putExtra("annee", annee.getAnnee());
+                                viewIntent.putExtra("bloc", bloc.getNom());
+                                viewIntent.putExtra("nom", matiere.getNom());
+                                viewIntent.putExtra("semestre", matiere.getSemestre());
+                                startActivity(viewIntent);
+                            }
+                        });
+
+                        if (matiere.getSemestre() == 1) {
+                            view2.setBackgroundColor(0xffffffff);
+                        } else if (matiere.getSemestre() == 2) {
+                            view2.setBackgroundColor(0xffdddddd);
+                        }
+
+                        TextView name = (TextView) view2.findViewById(R.id.titleM);
+                        name.setText("• " + matiere.getNom());
+                        TextView coeff = (TextView) view2.findViewById(R.id.coeffM);
+                        if (matiere.getCoeff() == Math.floor(matiere.getCoeff())) {
+                            coeff.setText(String.format("%.0f", matiere.getCoeff()));
+                        } else {
+                            coeff.setText(Double.toString(matiere.getCoeff()));
+                        }
+                        ((ViewGroup) ((ViewGroup) ((ViewGroup) container.getChildAt(i)).getChildAt(0)).getChildAt(0)).addView(view2, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                     }
-                });
-
-                if (matiere.getSemestre() == 1) {
-                    view2.setBackgroundColor(0xffffffff);
-                } else {
-                    view2.setBackgroundColor(0xffdddddd);
                 }
-
-                TextView name = (TextView) view2.findViewById(R.id.titleM);
-                name.setText("• " + matiere.getNom());
-                TextView coeff = (TextView) view2.findViewById(R.id.coeffM);
-                if (matiere.getCoeff() == Math.floor(matiere.getCoeff())) {
-                    coeff.setText(String.format("%.0f", matiere.getCoeff()));
-                } else {
-                    coeff.setText(Double.toString(matiere.getCoeff()));
-                }
-                ((ViewGroup)((ViewGroup)((ViewGroup) container.getChildAt(i)).getChildAt(0)).getChildAt(0)).addView(view2, -1, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             }
         }
         ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
@@ -142,17 +155,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadYear1(View view) {
         showCursus(datalist.get(0));
+        year = 1;
     }
     public void loadYear2(View view) {
         showCursus(datalist.get(1));
+        year = 2;
     }
     public void loadYear3(View view) {
         showCursus(datalist.get(2));
+        year = 3;
     }
     public void loadYear4(View view) {
         showCursus(datalist.get(3));
+        year = 4;
     }
     public void loadYear5(View view) {
         showCursus(datalist.get(4));
+        year = 5;
+    }
+
+    public void showAllSemester (View view) {
+        filter = 0;
+        showCursus(datalist.get(year-1));
+    }
+    public void showSemester1 (View view) {
+        filter = 1;
+        showCursus(datalist.get(year-1));
+    }
+    public void showSemester2 (View view) {
+        filter = 2;
+        showCursus(datalist.get(year-1));
     }
 }

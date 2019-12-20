@@ -131,15 +131,18 @@ public class MatiereDetailActivity extends AppCompatActivity {
         // load matière coeff
         TextView coeffView = (TextView) findViewById(R.id.mat_coeff);
         if (matiere.getCoeff() == Math.floor(matiere.getCoeff())) {
-            coeffView.setText(String.format("%.0f", matiere.getCoeff()));
+            coeffView.setText(" " + String.format("%.0f", matiere.getCoeff()));
         } else {
-            coeffView.setText(Double.toString(matiere.getCoeff()));
+            coeffView.setText(" " + Double.toString(matiere.getCoeff()));
         }
 
         // load matière nb heures
         TextView heureView = (TextView) findViewById(R.id.mat_heure);
-        String nbHeure = String.format("%.0f", matiere.getNb_heures());
-        heureView.setText(nbHeure);
+        if (matiere.getNb_heures() == Math.floor(matiere.getNb_heures())) {
+            heureView.setText(" " + String.format("%.0f", matiere.getNb_heures()));
+        } else {
+            heureView.setText(" " + Double.toString(matiere.getNb_heures()));
+        }
 
         // load matière résumé
         if (matiere.getResume().matches("")) {
@@ -183,17 +186,17 @@ public class MatiereDetailActivity extends AppCompatActivity {
             supportBtn.setVisibility(View.GONE);
         } else {
             ViewGroup icon_container = (ViewGroup) findViewById(R.id.mat_support);
-            String[] icons = {"doc_papier", "doc_numerique", "powerpoint", "audio", "video", "ordinateur", "web", "moodle", "mathematica"};
-            String[] iconsNoms = {"document papier", "document numérique", "powerpoint", "document audio", "document vidéo", "ordinateur", "support web", "moodle", "mathematica"};
+            String[] icons = {"doc_papier", "doc_numerique", "powerpoint", "audio", "video", "ordinateur", "web", "moodle", "mathematica", "quartus", "logiciel_r", "ms_project"};
+            String[] iconsNoms = {"document papier", "document numérique", "powerpoint", "document audio", "document vidéo", "ordinateur", "support web", "moodle", "mathematica", "quartus", "R (logiciel)", "MS project"};
 
-            for (String sup : matiere.getSupports()) {
-                int index = Arrays.asList(icons).indexOf(sup);
+            for (String support : matiere.getSupports()) {
+                int index = Arrays.asList(icons).indexOf(support);
                 LayoutInflater supportInflater = (LayoutInflater) getSystemService(this.LAYOUT_INFLATER_SERVICE);
                 View supportLayout = supportInflater.inflate(R.layout.support_layout, null);
 
-                ImageView supIcon = (ImageView) supportLayout.findViewById(R.id.support_icon);
-                int iconID = getResources().getIdentifier("ic_" + sup, "drawable", getPackageName());
-                supIcon.setImageResource(iconID);
+                ImageView supportIcon = (ImageView) supportLayout.findViewById(R.id.support_icon);
+                int iconID = getResources().getIdentifier("ic_" + support, "drawable", getPackageName());
+                supportIcon.setImageResource(iconID);
 
                 TextView supCaption = (TextView) supportLayout.findViewById(R.id.support_text);
                 supCaption.setText(iconsNoms[index]);

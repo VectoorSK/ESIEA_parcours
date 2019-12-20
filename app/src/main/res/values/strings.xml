@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ESIEA Cursus</string>
+    <string name="app_name">ESIE\'APP</string>
     <string name="repartition_text">Cours / TD :\nCours :\nTD :\nTP :\nProjet :\nAtelier :</string>
     <string name="to_fill">...</string>
     <string name="short_1a">1A</string>
@@ -9,10 +9,13 @@
     <string name="short_5a">5A</string>
     <string name="null_nb">0</string>
     <string name="null_text">null</string>
-    <string name="coeff_caption">Coefficient : </string>
-    <string name="heure_caption">Nombre d\'heure : </string>
+    <string name="coeff_caption">Coefficient :</string>
+    <string name="heure_caption">Nombre d\'heure :</string>
     <string name="resume_caption">Résumé </string>
     <string name="contenu_caption">Contenu </string>
     <string name="objectif_caption">Objectifs / Situations </string>
     <string name="support_caption">Support </string>
+    <string name="radio1">S1/S2</string>
+    <string name="radio2">S1</string>
+    <string name="radio3">S2</string>
 </resources>
